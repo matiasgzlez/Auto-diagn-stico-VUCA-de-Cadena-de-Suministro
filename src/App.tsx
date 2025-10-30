@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import IntroScreen from './components/IntroScreen';
 import QuestionWizard from './components/QuestionWizard';
 import ResultsScreen from './components/ResultsScreen';
-import { TestResult } from './types';
+import { TestResult, UserData } from './types';
 
 type Screen = 'intro' | 'questions' | 'results';
 
@@ -11,6 +11,7 @@ function App() {
   const [currentScreen, setCurrentScreen] = useState<Screen>('intro');
   const [answers, setAnswers] = useState<number[]>([]);
   const [testResult, setTestResult] = useState<TestResult | null>(null);
+  const [userData, setUserData] = useState<UserData | null>(null);
 
   // Cargar progreso guardado
   useEffect(() => {
@@ -31,7 +32,8 @@ function App() {
     }
   }, [answers, currentScreen]);
 
-  const startTest = () => {
+  const startTest = (data: UserData) => {
+    setUserData(data);
     setAnswers([]);
     setCurrentScreen('questions');
     localStorage.removeItem('vuca-test-answers');
@@ -45,7 +47,12 @@ function App() {
   };
 
   const finishTest = (result: TestResult) => {
-    setTestResult(result);
+    // Agregar datos del usuario al resultado
+    const resultWithUserData: TestResult = {
+      ...result,
+      userData: userData || undefined
+    };
+    setTestResult(resultWithUserData);
     setCurrentScreen('results');
     localStorage.removeItem('vuca-test-answers');
     localStorage.removeItem('vuca-test-screen');
@@ -54,6 +61,7 @@ function App() {
   const resetTest = () => {
     setAnswers([]);
     setTestResult(null);
+    setUserData(null);
     setCurrentScreen('intro');
     localStorage.removeItem('vuca-test-answers');
     localStorage.removeItem('vuca-test-screen');
@@ -62,6 +70,7 @@ function App() {
   const cancelTest = () => {
     setAnswers([]);
     setTestResult(null);
+    setUserData(null);
     setCurrentScreen('intro');
     localStorage.removeItem('vuca-test-answers');
     localStorage.removeItem('vuca-test-screen');

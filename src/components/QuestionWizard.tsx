@@ -20,8 +20,8 @@ const QuestionWizard: React.FC<QuestionWizardProps> = ({ answers, onAnswer, onFi
   const handleAnswer = (value: number) => {
     onAnswer(currentQuestion, value);
     
-    // Si la respuesta es menor a 7, mostrar recomendación
-    if (value < 7) {
+    // Si la respuesta es 7 o menos, mostrar recomendación
+    if (value <= 7) {
       setCurrentRecommendation(testConfig.questions[currentQuestion].recommendation);
       setShowRecommendation(true);
     }

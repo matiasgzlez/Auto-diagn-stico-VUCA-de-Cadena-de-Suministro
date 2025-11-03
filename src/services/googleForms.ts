@@ -2,22 +2,20 @@ import { UserData, TestResult } from '../types';
 import { K2_CONTACT } from '../config/k2Contact';
 
 // URL del formulario de Google Forms
-// TODO: Reemplazar con la URL real del formulario de Google Forms
-const GOOGLE_FORMS_URL = 'https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse';
+const GOOGLE_FORMS_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdu3AS1cjd3IJgf0dFz6smG83NoDtyGlXMWZJMG6dE88o-GWg/formResponse';
 
-// IDs de los campos del formulario (se obtienen inspeccionando el HTML del formulario)
-// TODO: Actualizar estos IDs según los campos reales de tu formulario
+// IDs de los campos del formulario
 const FORM_FIELD_IDS = {
-  nombre: 'entry.XXXXXXXXXX', // Reemplazar con el ID real
-  empresa: 'entry.XXXXXXXXXX',
-  cargo: 'entry.XXXXXXXXXX',
-  pais: 'entry.XXXXXXXXXX',
-  correo: 'entry.XXXXXXXXXX',
-  whatsapp: 'entry.XXXXXXXXXX',
-  puntajeTotal: 'entry.XXXXXXXXXX',
-  nivel: 'entry.XXXXXXXXXX',
-  recomendaciones: 'entry.XXXXXXXXXX',
-  fechaCompletado: 'entry.XXXXXXXXXX'
+  nombre: 'entry.421620701',           // Campo 1: Nombre completo
+  empresa: 'entry.440648688',          // Campo 2: Empresa
+  cargo: 'entry.376414939',            // Campo 3: Cargo
+  pais: 'entry.865462329',             // Campo 4: País
+  correo: 'entry.1764670428',          // Campo 5: Correo electrónico
+  whatsapp: 'entry.1845723712',        // Campo 6: WhatsApp
+  puntajeTotal: 'entry.923143848',     // Campo 7: Puntaje Total
+  nivel: 'entry.384679892',            // Campo 8: Nivel
+  recomendaciones: 'entry.1236599801', // Campo 9: Recomendaciones
+  fechaCompletado: 'entry.1614030703'  // Campo 10: Fecha completado
 };
 
 /**
@@ -27,8 +25,8 @@ export const submitToGoogleForms = async (
   userData: UserData,
   testResult: TestResult
 ): Promise<boolean> => {
-  // Si la URL no está configurada, no intentar enviar
-  if (GOOGLE_FORMS_URL.includes('YOUR_FORM_ID')) {
+  // Validación básica - verificar que la URL esté configurada
+  if (!GOOGLE_FORMS_URL || GOOGLE_FORMS_URL.includes('YOUR_FORM_ID')) {
     return false;
   }
   

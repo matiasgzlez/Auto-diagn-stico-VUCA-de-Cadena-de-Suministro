@@ -27,6 +27,11 @@ export const submitToGoogleForms = async (
   userData: UserData,
   testResult: TestResult
 ): Promise<boolean> => {
+  // Si la URL no está configurada, no intentar enviar
+  if (GOOGLE_FORMS_URL.includes('YOUR_FORM_ID')) {
+    return false;
+  }
+  
   try {
     // Preparar los datos para enviar
     const formData = new FormData();

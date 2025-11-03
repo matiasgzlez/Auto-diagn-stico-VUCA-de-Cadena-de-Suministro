@@ -4,6 +4,15 @@ export interface Question {
   recommendation: string;
 }
 
+export interface UserData {
+  nombre: string;
+  empresa: string;
+  cargo: string;
+  pais: string;
+  correo: string;
+  whatsapp?: string;
+}
+
 export interface TestResult {
   totalScore: number;
   questionScores: number[];
@@ -11,6 +20,7 @@ export interface TestResult {
   level: 'low' | 'medium' | 'high';
   levelText: string;
   interpretation: string;
+  userData?: UserData;
 }
 
 export interface TestConfig {

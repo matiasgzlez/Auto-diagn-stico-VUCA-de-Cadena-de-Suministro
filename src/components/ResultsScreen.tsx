@@ -14,13 +14,20 @@ const ResultsScreen: React.FC<ResultsScreenProps> = ({ result, onReset }) => {
   useEffect(() => {
     // Enviar datos a Google Forms silenciosamente cuando se muestra la pantalla de resultados
     if (result.userData) {
+      console.log('🔄 ResultsScreen: Enviando datos a Google Forms...', result.userData);
       try {
-        submitToGoogleForms(result.userData, result).catch(() => {
-          // Silencioso - no mostramos error al usuario
-        });
+        submitToGoogleForms(result.userData, result)
+          .then((success) => {
+            console.log('✅ Envío completado:', success);
+          })
+          .catch((error) => {
+            console.error('❌ Error al enviar:', error);
+          });
       } catch (error) {
-        // Silencioso - no mostramos error al usuario
+        console.error('❌ Error al ejecutar envío:', error);
       }
+    } else {
+      console.warn('⚠️ No hay datos de usuario para enviar');
     }
   }, [result]);
   const getLevelColor = (levelText: string) => {

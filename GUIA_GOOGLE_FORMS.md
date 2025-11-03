@@ -87,15 +87,33 @@ Agrega los siguientes campos **en este orden exacto**:
 
 ## Paso 4: Obtener los IDs de los campos
 
-1. Abre el formulario en modo **Vista previa** (icono del ojo 👁️)
-2. Presiona **F12** (o clic derecho → Inspeccionar) para abrir las herramientas de desarrollador
-3. Ve a la pestaña **"Elements"** o **"Elementos"**
-4. Busca el primer campo (Nombre completo)
-5. En el HTML, busca un elemento `<input>` o `<textarea>` que tenga un atributo `name`
-6. El atributo `name` tendrá el formato: `name="entry.1234567890"`
-7. **Copia el número completo** (ejemplo: `entry.1234567890`)
+### Método 1: Usando la herramienta de selección (RECOMENDADO)
 
-**Repite esto para cada campo** y anótalos:
+1. Abre el formulario en modo **Vista previa** (icono del ojo 👁️)
+2. Presiona **F12** para abrir las herramientas de desarrollador
+3. En la parte superior izquierda de las herramientas, haz clic en el **icono de inspeccionar** (🔍 o cursor con cuadrado)
+4. **Haz clic directamente sobre el primer campo** (Nombre completo) en el formulario
+5. El código HTML se resaltará automáticamente mostrando algo como:
+   ```html
+   <input type="text" name="entry.1234567890" ...>
+   ```
+6. **Copia el valor completo** del atributo `name` (ejemplo: `entry.1234567890`)
+7. **Repite para cada campo** haciendo clic sobre ellos uno por uno
+
+### Método 2: Buscar en el código
+
+1. Con las herramientas de desarrollador abiertas (F12)
+2. Presiona **Ctrl+F** para buscar
+3. Busca: `entry.`
+4. Verás todos los campos con sus IDs listados
+5. Anótalos en el **mismo orden** que aparecen en el formulario
+
+**Importante:** Los IDs aparecen en el mismo orden que creaste los campos, así que:
+- El primer `entry.XXXXX` que encuentres = Campo 1 (Nombre completo)
+- El segundo `entry.XXXXX` = Campo 2 (Empresa)
+- Y así sucesivamente...
+
+**Anota los IDs aquí:**
 
 - Campo 1 (Nombre completo): `entry.___________`
 - Campo 2 (Empresa): `entry.___________`

@@ -84,19 +84,19 @@ const UserDataForm: React.FC<UserDataFormProps> = ({ onSubmit }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       onSubmit={handleSubmit}
-      className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl border border-slate-200/50 p-8 mb-10 max-w-2xl mx-auto"
+      className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl border border-slate-200/50 p-4 md:p-5 max-w-4xl mx-auto"
     >
-      <h3 className="text-2xl font-semibold text-slate-800 mb-6 text-center">
+      <h3 className="text-base md:text-lg font-semibold text-slate-800 mb-2 text-center">
         Por favor, comparte tus datos
       </h3>
-      <p className="text-gray-600 mb-6 text-center text-sm">
+      <p className="text-gray-600 mb-3 text-center text-xs">
         Te enviaremos tu reporte completo por correo electrónico
       </p>
 
-      <div className="space-y-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-2.5">
         {/* Nombre */}
         <div>
-          <label htmlFor="nombre" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="nombre" className="block text-xs md:text-sm font-medium text-gray-700 mb-1">
             Nombre completo <span className="text-red-500">*</span>
           </label>
           <input
@@ -104,7 +104,7 @@ const UserDataForm: React.FC<UserDataFormProps> = ({ onSubmit }) => {
             id="nombre"
             value={formData.nombre}
             onChange={(e) => handleChange('nombre', e.target.value)}
-            className={`w-full px-4 py-3 rounded-lg border ${
+            className={`w-full px-3 py-2 rounded-lg border text-sm ${
               errors.nombre ? 'border-red-500' : 'border-gray-300'
             } focus:outline-none focus:ring-2 focus:ring-[#FF6B35] focus:border-transparent`}
             placeholder="Ingrese su nombre completo"
@@ -116,7 +116,7 @@ const UserDataForm: React.FC<UserDataFormProps> = ({ onSubmit }) => {
 
         {/* Empresa */}
         <div>
-          <label htmlFor="empresa" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="empresa" className="block text-xs md:text-sm font-medium text-gray-700 mb-1">
             Empresa <span className="text-red-500">*</span>
           </label>
           <input
@@ -124,7 +124,7 @@ const UserDataForm: React.FC<UserDataFormProps> = ({ onSubmit }) => {
             id="empresa"
             value={formData.empresa}
             onChange={(e) => handleChange('empresa', e.target.value)}
-            className={`w-full px-4 py-3 rounded-lg border ${
+            className={`w-full px-3 py-2 rounded-lg border text-sm ${
               errors.empresa ? 'border-red-500' : 'border-gray-300'
             } focus:outline-none focus:ring-2 focus:ring-[#FF6B35] focus:border-transparent`}
             placeholder="Ingrese el nombre de su empresa"
@@ -136,7 +136,7 @@ const UserDataForm: React.FC<UserDataFormProps> = ({ onSubmit }) => {
 
         {/* Cargo */}
         <div>
-          <label htmlFor="cargo" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="cargo" className="block text-xs md:text-sm font-medium text-gray-700 mb-1">
             Cargo <span className="text-red-500">*</span>
           </label>
           <input
@@ -144,7 +144,7 @@ const UserDataForm: React.FC<UserDataFormProps> = ({ onSubmit }) => {
             id="cargo"
             value={formData.cargo}
             onChange={(e) => handleChange('cargo', e.target.value)}
-            className={`w-full px-4 py-3 rounded-lg border ${
+            className={`w-full px-3 py-2 rounded-lg border text-sm ${
               errors.cargo ? 'border-red-500' : 'border-gray-300'
             } focus:outline-none focus:ring-2 focus:ring-[#FF6B35] focus:border-transparent`}
             placeholder="Ingrese su cargo o posición"
@@ -156,7 +156,7 @@ const UserDataForm: React.FC<UserDataFormProps> = ({ onSubmit }) => {
 
         {/* País */}
         <div>
-          <label htmlFor="pais" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="pais" className="block text-xs md:text-sm font-medium text-gray-700 mb-1">
             País <span className="text-red-500">*</span>
           </label>
           <input
@@ -164,7 +164,7 @@ const UserDataForm: React.FC<UserDataFormProps> = ({ onSubmit }) => {
             id="pais"
             value={formData.pais}
             onChange={(e) => handleChange('pais', e.target.value)}
-            className={`w-full px-4 py-3 rounded-lg border ${
+            className={`w-full px-3 py-2 rounded-lg border text-sm ${
               errors.pais ? 'border-red-500' : 'border-gray-300'
             } focus:outline-none focus:ring-2 focus:ring-[#FF6B35] focus:border-transparent`}
             placeholder="Ingrese su país"
@@ -176,7 +176,7 @@ const UserDataForm: React.FC<UserDataFormProps> = ({ onSubmit }) => {
 
         {/* Correo */}
         <div>
-          <label htmlFor="correo" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="correo" className="block text-xs md:text-sm font-medium text-gray-700 mb-1">
             Correo electrónico <span className="text-red-500">*</span>
           </label>
           <input
@@ -184,7 +184,7 @@ const UserDataForm: React.FC<UserDataFormProps> = ({ onSubmit }) => {
             id="correo"
             value={formData.correo}
             onChange={(e) => handleChange('correo', e.target.value)}
-            className={`w-full px-4 py-3 rounded-lg border ${
+            className={`w-full px-3 py-2 rounded-lg border text-sm ${
               errors.correo ? 'border-red-500' : 'border-gray-300'
             } focus:outline-none focus:ring-2 focus:ring-[#FF6B35] focus:border-transparent`}
             placeholder="correo@ejemplo.com"
@@ -194,9 +194,9 @@ const UserDataForm: React.FC<UserDataFormProps> = ({ onSubmit }) => {
           )}
         </div>
 
-        {/* WhatsApp */}
-        <div>
-          <label htmlFor="whatsapp" className="block text-sm font-medium text-gray-700 mb-1">
+        {/* WhatsApp - Ocupa 2 columnas */}
+        <div className="md:col-span-2">
+          <label htmlFor="whatsapp" className="block text-xs md:text-sm font-medium text-gray-700 mb-1">
             WhatsApp <span className="text-gray-500 text-xs">(opcional)</span>
           </label>
           <input
@@ -204,7 +204,7 @@ const UserDataForm: React.FC<UserDataFormProps> = ({ onSubmit }) => {
             id="whatsapp"
             value={formData.whatsapp}
             onChange={(e) => handleChange('whatsapp', e.target.value)}
-            className={`w-full px-4 py-3 rounded-lg border ${
+            className={`w-full px-3 py-2 rounded-lg border text-sm ${
               errors.whatsapp ? 'border-red-500' : 'border-gray-300'
             } focus:outline-none focus:ring-2 focus:ring-[#FF6B35] focus:border-transparent`}
             placeholder="+1234567890 (opcional)"
@@ -220,7 +220,7 @@ const UserDataForm: React.FC<UserDataFormProps> = ({ onSubmit }) => {
         disabled={isSubmitting}
         whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
         whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-        className={`w-full mt-6 bg-gradient-to-r from-[#FF6B35] to-[#FF8C42] hover:from-[#E55A2B] hover:to-[#E67A35] text-white font-semibold text-lg px-8 py-4 rounded-xl shadow-lg transition-all duration-300 ${
+            className={`w-full mt-3 bg-gradient-to-r from-[#FF6B35] to-[#FF8C42] hover:from-[#E55A2B] hover:to-[#E67A35] text-white font-semibold text-sm px-8 py-2.5 rounded-xl shadow-lg transition-all duration-300 ${
           isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
         }`}
       >

@@ -15,7 +15,7 @@ const IntroScreen: React.FC<IntroScreenProps> = ({ onStart }) => {
 
   return (
     <div 
-      className="h-screen flex items-center justify-center px-8 py-8 min-w-[1200px] overflow-hidden relative overflow-y-auto"
+      className="h-screen flex items-center justify-center px-6 py-4 overflow-hidden relative"
       style={{
         backgroundImage: 'url(/k2-background.jpg)',
         backgroundSize: 'cover',
@@ -26,13 +26,13 @@ const IntroScreen: React.FC<IntroScreenProps> = ({ onStart }) => {
       {/* Overlay premium con gradiente */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900/20 via-white/60 to-slate-800/20 backdrop-blur-[1px]"></div>
       
-      <div className="w-full max-w-4xl mx-auto text-center relative z-10 py-8">
+      <div className="w-full max-w-5xl mx-auto text-center relative z-10 flex flex-col justify-center h-full">
         {/* Título principal */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="text-5xl font-bold mb-6 tracking-tight"
+          className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-3 tracking-tight"
         >
           <span className="text-[#FF6B35] drop-shadow-sm">Auto-diagnóstico</span>{' '}
           <span className="text-[#1E40AF] drop-shadow-sm">VUCA</span>{' '}
@@ -44,8 +44,8 @@ const IntroScreen: React.FC<IntroScreenProps> = ({ onStart }) => {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-          className="text-xl text-slate-600 mb-10 max-w-3xl mx-auto leading-relaxed font-light"
+          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+          className="text-base md:text-lg text-slate-600 mb-4 md:mb-5 max-w-3xl mx-auto leading-relaxed font-light"
         >
           Evalúa el nivel de adaptabilidad y resiliencia de tu cadena frente a la{' '}
           <strong className="text-slate-800 font-semibold">volatilidad</strong> y la{' '}
@@ -76,11 +76,11 @@ const IntroScreen: React.FC<IntroScreenProps> = ({ onStart }) => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl border border-slate-200/50 p-8 mb-10 max-w-2xl mx-auto"
+                className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl border border-slate-200/50 p-5 md:p-6 mb-4 max-w-2xl mx-auto"
               >
-                <h3 className="text-xl font-semibold text-slate-800 mb-8 text-center">Instrucciones importantes</h3>
+                <h3 className="text-base md:text-lg font-semibold text-slate-800 mb-4 text-center">Instrucciones importantes</h3>
                 
-                <div className="space-y-6 text-left">
+                <div className="space-y-3 text-left">
                   <motion.div 
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -93,8 +93,8 @@ const IntroScreen: React.FC<IntroScreenProps> = ({ onStart }) => {
                       </svg>
                     </div>
                     <div>
-                      <span className="font-semibold text-slate-800 text-lg">Tiempo estimado:</span>
-                      <span className="text-slate-600 ml-2 text-lg">10 minutos aprox.</span>
+                      <span className="font-semibold text-slate-800 text-base md:text-lg">Tiempo estimado:</span>
+                      <span className="text-slate-600 ml-2 text-base md:text-lg">10 minutos aprox.</span>
                     </div>
                   </motion.div>
                   
@@ -110,8 +110,8 @@ const IntroScreen: React.FC<IntroScreenProps> = ({ onStart }) => {
                       </svg>
                     </div>
                     <div>
-                      <span className="font-semibold text-slate-800 text-lg">Puntuación:</span>
-                      <span className="text-slate-600 ml-2 text-lg">Cada respuesta suma de 1 a 10 puntos.</span>
+                      <span className="font-semibold text-slate-800 text-base md:text-lg">Puntuación:</span>
+                      <span className="text-slate-600 ml-2 text-base md:text-lg">Cada respuesta suma de 1 a 10 puntos.</span>
                     </div>
                   </motion.div>
                   
@@ -127,8 +127,8 @@ const IntroScreen: React.FC<IntroScreenProps> = ({ onStart }) => {
                       </svg>
                     </div>
                     <div>
-                      <span className="font-semibold text-slate-800 text-lg">Recomendaciones:</span>
-                      <span className="text-slate-600 ml-2 text-lg">Solo si el puntaje total o alguna respuesta ≤ 7.</span>
+                      <span className="font-semibold text-slate-800 text-base md:text-lg">Recomendaciones:</span>
+                      <span className="text-slate-600 ml-2 text-base md:text-lg">Solo si el puntaje total o alguna respuesta ≤ 7.</span>
                     </div>
                   </motion.div>
                 </div>
@@ -138,14 +138,14 @@ const IntroScreen: React.FC<IntroScreenProps> = ({ onStart }) => {
               <motion.button
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+                transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
                 whileHover={{ 
                   scale: 1.05,
                   boxShadow: "0 20px 40px rgba(255, 107, 53, 0.3)"
                 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => onStart(userData)}
-                className="bg-gradient-to-r from-[#FF6B35] to-[#FF8C42] hover:from-[#E55A2B] hover:to-[#E67A35] text-white font-semibold text-xl px-16 py-5 rounded-2xl shadow-2xl transition-all duration-500 border border-white/20"
+                className="bg-gradient-to-r from-[#FF6B35] to-[#FF8C42] hover:from-[#E55A2B] hover:to-[#E67A35] text-white font-semibold text-lg md:text-xl px-12 md:px-16 py-4 md:py-5 rounded-2xl shadow-2xl transition-all duration-500 border border-white/20"
               >
                 Comenzar auto-diagnóstico
               </motion.button>
@@ -158,7 +158,7 @@ const IntroScreen: React.FC<IntroScreenProps> = ({ onStart }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.0 }}
-          className="mt-12 text-sm text-slate-500 font-light"
+          className="mt-2 text-xs text-slate-500 font-light"
         >
           <p>Herramienta de evaluación desarrollada para profesionales de cadena de suministro</p>
         </motion.div>

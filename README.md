@@ -1,6 +1,6 @@
-# 🛒 ShopFlow - E-commerce Platform
+# 🧪 Auto-diagnóstico VUCA - Cadena de Suministro
 
-Una plataforma de e-commerce moderna construida con React y NestJS, diseñada para ser desplegada en Northflank y desarrollada localmente por equipos distribuidos.
+Herramienta web interactiva desarrollada para evaluar el nivel de adaptabilidad y resiliencia de las cadenas de suministro frente a la volatilidad y la incertidumbre (VUCA). Permite a profesionales y empresas realizar una autoevaluación mediante un cuestionario estructurado que califica diferentes aspectos operativos con puntuaciones del 1 al 10. El sistema genera recomendaciones personalizadas cuando se identifican áreas de mejora (puntuaciones ≤ 7) y proporciona un reporte completo con el nivel de madurez alcanzado (Bajo, Medio o Alto). La aplicación recolecta información del usuario al inicio del proceso y envía automáticamente los resultados a Google Forms para su análisis y seguimiento, facilitando la gestión de leads y el enriquecimiento de la base de datos. Incluye una sección destacada con enlaces a programas de formación especializados de K2 Solutions para fortalecer las áreas identificadas.
 
 ## 🏗️ Arquitectura del Proyecto
 
